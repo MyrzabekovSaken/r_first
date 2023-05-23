@@ -1,3 +1,33 @@
+### GET PRODUCTS
+GET http://localhost:3000/products HTTP/1.1
 
-GET https://fakestoreapi.com/products/1
 
+### GET PRODUCT
+GET http://localhost:3000/products/1 HTTP/1.1
+
+
+
+### CREATE PRODUCT
+POST http://localhost:3000/products/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 4,
+    "title": "Product 5"
+}
+
+
+
+### UPDATE PRODUCT
+PUT http://localhost:3000/products/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Product 4"
+}
+
+
+### DELETE PRODUCT
+DELETE http://localhost:3000/products/4 HTTP/1.1
+
+#CRUD = Create, Read, Update, Delete
