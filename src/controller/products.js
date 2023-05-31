@@ -1,8 +1,13 @@
 import axios from "axios";
 
 const productsController = {
-  async getProducts() {
-    return await axios.get("http://localhost:3000/products");
+  async getProducts(params=null) {
+    return await axios.get("http://localhost:3000/products", {
+      params: params || {
+        _page: 1,
+        _limit: 10,
+      },
+    });
   },
 
   async getProduct(id) {

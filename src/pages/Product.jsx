@@ -1,18 +1,37 @@
-import { useParams, useSearchParams } from "react-router-dom";
-import Navbar from "../components/Navbar"
-
+import Card from "../components/Card/Card";
+import Navbar from "../components/Navbar";
+import productsController from "../controller/products";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Product = () => {
-    const {id} = useParams();
-    const [searchParams] = useSearchParams();
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(false);
+  const { id } = useParams();
 
-    return (
-        <div>
-            <Navbar></Navbar>
-            <h1>Product #{id}</h1>
-            <h2>SearchParams: {searchParams.get("page")}</h2>
-        </div>
-    );
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    const { data } = await productsController.getProduct(parseInt(id));
+    setProduct(data);
+    setLoading(false);
+  };
+
+  return (
+    <div>
+      <Navbar />
+      <h1>Products</h1>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <Card product={product} />
+      )}
+    </div>
+  );
 };
 
 export default Product;

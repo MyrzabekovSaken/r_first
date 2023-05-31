@@ -8,13 +8,13 @@
 yarn install
 ```
 
-2. Run the frontend project
+2. Run the front-end project
 
 ```bash
 yarn dev
 ```
 
-3. Run the backend project
+3. Run the back-end project
 
 ```bash
 yarn serve

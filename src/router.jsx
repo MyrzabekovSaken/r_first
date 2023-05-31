@@ -4,6 +4,7 @@ import About from "./pages/About.jsx";
 import Products from "./pages/Products.jsx";
 import Product from "./pages/Product.jsx";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,12 +16,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/products",
-    element: <Products />
-    },
+    element: <Products />,
+  },
   {
     path: "/products/:id",
-    element: <Product />
-  }  
+    element: <Product />,
+  }
 ]);
 
 export default router;
