@@ -15,9 +15,12 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <h1>Home</h1>
-      <h1>{number}</h1>
-      <button onClick={handleClick}>Click</button>
+
+      <div style={{textAlign:"center"}}>
+        <h1>WELCOME TO THE FOOTBALL SHOP</h1>
+        
+      </div>
+
     </div>
   );
 };

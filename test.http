@@ -1,6 +1,6 @@
 ### Get Products
 
-GET http://127.0.0.1:3000/products?_sort=price&_order=desc HTTP/1.1
+GET http://127.0.0.1:3000/products?categoryId=4 HTTP/1.1
 
 ### Get Product
 

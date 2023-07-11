@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 
 
-const Categories = ({categoryId}) => {
-    const[activeIndex, setActiveIndex] = useState(0);
+const Categories = ({categoryId, onChangeCategory}) => {
+    // const[activeIndex, setActiveIndex] = useState(0);
 
     const categories = ["All", "England", "Spain", "Germany", "Italy", "Other"];
 
     return (
         <div>
-            { categories.map((category, i) => (
-            <button onClick={() => setActiveIndex(i)} className={activeIndex == i ? "active" : ""}> {category} </button>)) }
+            { categories.map((categoryName, i) => (
+            <button 
+            key={i}
+            onClick={() => onChangeCategory(i)} 
+            className={categoryId == i ? "active" : ""}> 
+            {categoryName} 
+            </button>
+            )) }
         </div>
     );
 };

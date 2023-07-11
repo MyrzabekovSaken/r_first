@@ -2,8 +2,9 @@ import Card from "../components/Card/Card";
 import Navbar from "../components/Navbar";
 import productsController from "../controller/products";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+
 
 const Product = () => {
   const [product, setProduct] = useState({});
@@ -11,14 +12,19 @@ const Product = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchProducts();
+    fetchProduct();
   }, []);
 
-  const fetchProducts = async () => {
+  const fetchProduct = async () => {
     setLoading(true);
-    const { data } = await productsController.getProduct(parseInt(id));
-    setProduct(data);
-    setLoading(false);
+    try {
+      const { data } = await productsController.getProduct(parseInt(id));
+      setProduct(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
